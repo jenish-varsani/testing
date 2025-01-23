@@ -1,0 +1,331 @@
+{
+    "request": {
+      "url": "/api/transaction/jangad/index",
+      "store": "rvTransactionJangadIssue",
+      "observers": {
+        "date": {
+          "formate": "DD-MM-YYYY",
+          "observerName": "formateDate"
+        },
+        "demand_date": {
+          "formate": "DD-MM-YYYY",
+          "observerName": "formateDate"
+        }
+      },
+      "defaultFilter": {
+        "has_attached": "no",
+        "type": "issue"
+      }
+    },
+    "isColumnsWrapper": true,
+    "matchTrClass": {
+      "matchKey": "reject_and_repeat",
+      "trStyle": [
+        {
+          "fieldValue": "yes",
+          "class": "rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 "
+        }
+      ]
+    },
+    "columns": [
+      {
+        "label": "Sr.No",
+        "format": "serialNumber",
+        "innerClassResponsive": "flex flex-wrap items-center space-x-0.5"
+      },
+      {
+        "class": "hidden",
+        "tdClass": "hidden",
+        "name": "created_at",
+        "sort": "desc",
+        "innerClassResponsive": "hidden"
+      },
+      {
+        "class": "hidden",
+        "tdClass": "hidden",
+        "name": "reject_and_repeat",
+        "innerClassResponsive": "hidden"
+      },
+      {
+        "label": "Date",
+        "name": "date",
+        "sort": "normal"
+      },
+      {
+        "label": "Touch",
+        "name": "touch_color_name"
+      },
+      {
+        "label": "Gross",
+        "name": "gross_weight",
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell",
+        "footer": [
+          {
+            "title": "Sum : ",
+            "method": "sum",
+            "decimal": 3,
+            "tfClass": "text-red-700"
+          }
+        ]
+      },
+      {
+        "label": "Net Weight",
+        "name": "net_weight",
+        "columnWrapper": {
+          "showColumn": false
+        },
+        "footer": [
+          {
+            "title": "Sum : ",
+            "method": "sum",
+            "decimal": 3,
+            "tfClass": "text-red-700"
+          }
+        ]
+      },
+      {
+        "label": "F. D. & P.",
+        "name": "from_department_process_name",
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell"
+      },
+      {
+        "label": "Production User",
+        "name": "from_account_name",
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell",
+        "footer": [
+          {
+            "title": "Total Production User : ",
+            "method": "uniqCalculation",
+            "tfClass": "text-red-700"
+          }
+        ]
+      },
+      {
+        "label": "T. D. & P.",
+        "name": "to_department_process_name",
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell"
+      },
+      {
+        "label": "Supplier",
+        "name": "to_account_name",
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell",
+        "footer": [
+          {
+            "title": "Total Supplier : ",
+            "method": "uniqCalculation",
+            "tfClass": "text-red-700"
+          }
+        ]
+      },
+      {
+        "label": "Items",
+        "name": "tag_item",
+        "setReadMore": {
+          "minLenght": 20
+        },
+        "columnWrapper": {
+          "showColumn": false
+        }
+      },
+      {
+        "label": "Tags",
+        "name": "total_tags",
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell"
+      },
+      {
+        "label": "Order No.",
+        "name": "order_number",
+        "setClipboard": {
+          "icon": "Square2StackIcon"
+        },
+        "setReadMore": {
+          "minLenght": 20
+        }
+      },
+      {
+        "label": "Client",
+        "name": "party_name",
+        "setReadMore": {
+          "minLenght": 20
+        },
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell"
+      },
+      {
+        "label": "PDD",
+        "name": "demand_date",
+        "setReadMore": {
+          "minLenght": 20
+        },
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell"
+      },
+      {
+        "label": "T.N.",
+        "name": "auto_number",
+        "sort": "normal",
+        "setClipboard": {
+          "icon": "Square2StackIcon"
+        }
+      },
+      {
+        "label": "Tag C.",
+        "name": "has_attached",
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell"
+      },
+      {
+        "label": "Narration",
+        "name": "narration",
+        "setReadMore": {
+          "minLenght": 20
+        },
+        "class": "xl:table-cell sm:hidden table-cell",
+        "tdClass": "xl:table-cell sm:hidden table-cell"
+      },
+      {
+        "label": "Order Narration",
+        "name": "order_narration",
+        "columnWrapper": {
+          "showColumn": false
+        }
+      },
+      {
+        "label": "Particular",
+        "class": "xl:hidden sm:table-cell hidden",
+        "tdClass": "xl:hidden sm:table-cell hidden",
+        "innerClassResponsive": "hidden",
+        "setParticular": {
+          "gross_weight": {
+            "label": "Gross",
+            "name": "gross_weight",
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          },
+          "from_department_process_name": {
+            "label": "F. D. & P.",
+            "name": "from_department_process_name",
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          },
+          "from_account_name": {
+            "label": "Production User",
+            "name": "from_account_name",
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          },
+          "to_department_process_name": {
+            "label": "T. D. & P.",
+            "name": "to_department_process_name",
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          },
+          "to_account_name": {
+            "label": "Supplier",
+            "name": "to_account_name",
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          },
+          "total_tags": {
+            "label": "Tags",
+            "name": "total_tags",
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          },
+          "party_name": {
+            "label": "Client",
+            "name": "party_name",
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          },
+          "demand_date": {
+            "label": "PDD",
+            "name": "demand_date",
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          },
+          "has_attached": {
+            "label": "Tag C.",
+            "name": "has_attached",
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          },
+          "narration": {
+            "label": "Narration",
+            "name": "narration",
+            "setReadMore": {
+              "minLenght": 20
+            },
+            "parentClass": "mr-2",
+            "showNone": ["-", "null", "undefined"]
+          }
+        }
+      },
+      {
+        "label": "Action",
+        "format": "action",
+        "innerClassResponsive": "absolute top-4 right-4 flex flex-wrap items-center space-x-0.5",
+        "labelClass": "hidden",
+        "linkHeight": 36.8,
+        "links": [
+          {
+            "route": "rvTransactionHallmarkIssueEdit",
+            "label": "Edit",
+            "permission": "jangad.update"
+          },
+          {
+            "label": "Transaction History",
+            "redirectParams": "transaction-history",
+            "keys": ["auto_number"]
+          },
+          {
+            "route": "destroy",
+            "label": "Delete",
+            "permission": "jangad.delete"
+          },
+          {
+            "route": "exportExcel",
+            "label": "Export HUID Tags",
+            "permission": "jangad.update",
+            "filter": {
+              "field": "type",
+              "condition": "in",
+              "options": ["issue", "transfer"]
+            },
+            "config": {
+              "url": "/api/transaction/processwisetags/export-xls/{uuid}/hallmark",
+              "primaryKey": "uuid",
+              "customFileName": {
+                "key": "auto_number"
+              },
+              "uniqueKey": "uuid",
+              "method": "get",
+              "exportObserver": {
+                "observers": {
+                  "tags": {
+                    "observerName": "removeField",
+                    "fields": ["uuid"]
+                  }
+                }
+              },
+              "isBlankColumnShow": true,
+              "fields": {
+                "tags": {
+                  "item_name": "",
+                  "design_no": "",
+                  "tag_number": "",
+                  "gross_weight": ""
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
